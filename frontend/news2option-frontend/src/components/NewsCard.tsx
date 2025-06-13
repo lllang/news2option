@@ -17,21 +17,21 @@ const NewsCard: React.FC<NewsCardProps> = ({ news, onClick }) => {
   };
 
   return (
-    <Card className="h-full flex flex-col">
+    <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:shadow-gray-200/50 cursor-pointer">
       <CardHeader>
         <div className="flex justify-between items-start">
-          <CardTitle className="text-lg font-bold">{news.title}</CardTitle>
+          <CardTitle className="text-lg font-bold line-clamp-2">{news.title}</CardTitle>
         </div>
         <CardDescription className="flex items-center justify-between">
-          <span>Source: {news.source}</span>
-          <Badge variant="outline">{formatDate(news.publishedAt)}</Badge>
+          <span className="text-sm truncate">Source: {news.source}</span>
+          <Badge variant="outline" className="text-xs">{formatDate(news.publishedAt)}</Badge>
         </CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
-        <p className="line-clamp-4">{news.content}</p>
+        <p className="line-clamp-4 text-sm text-gray-600">{news.content}</p>
       </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="outline" onClick={() => onClick(news.id)}>
+      <CardFooter className="flex justify-between gap-2">
+        <Button variant="outline" size="sm" onClick={() => onClick(news.id)} className="flex-1">
           View Analysis
         </Button>
         <Button variant="ghost" size="icon" asChild>

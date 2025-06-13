@@ -9,5 +9,16 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    host: '0.0.0.0',
+    allowedHosts: [
+      'localhost',
+      '127.0.0.1',
+      '0.0.0.0',
+      'work-1-jzqocjnnbhotgnxq.prod-runtime.all-hands.dev',
+      '.prod-runtime.all-hands.dev'
+    ],
+    cors: true,
+  },
 })
 
